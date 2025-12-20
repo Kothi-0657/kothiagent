@@ -24,3 +24,10 @@ app.use("/api/admin", adminRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get("/api/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend is running",
+    time: new Date().toISOString(),
+  });
+});
